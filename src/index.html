@@ -8,21 +8,107 @@
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="https://api.chayns.net/css/v4.2">
+    
+
+    <!-- css styles -->
+    <script src="https://api.chayns-static.space/css/v4/compatibility/compatibility.min.js" version="4.2"></script>
+    <script src="https://api.chayns-static.space/ui/v4.0/chayns-ui.min.js"></script>
+
 
     <title>chayns® ESNext Template</title>
 </head>
 <body>
 <div id="app">
     <div class="tapp">
-        <div class="userInfo">
-            <p id="intro">
-            <div class="btnWrapper">
-                <button id="loginBtn" class="button" />
+        <div class="tapp_intro">
+
+            <h1> My Favourite Sites </h1>
+            <p> Willkommen auf meiner Liste von Chayns-Sites! Du kannst auch eine <a href="#accordion">Seite vorschlagen</a>. </p>
+
+            <div style="text-align: center">
+                <input class="input" type="text" placeholder="Suche" required>
             </div>
+
+            <div style="text-align: center"> 
+                <div class="sitesList" style="padding:13px 0">
+                    <div class="site">
+                        <div class="siteIcon"></div>
+                        <p class="siteTitle">Eine Seite</p>
+                    </div>
+                    <div class="site">
+                        <div class="siteIcon"></div>
+                        <p class="siteTitle">Eine Seite</p>
+                    </div>
+                    <div class="site">
+                        <div class="siteIcon"></div>
+                        <p class="siteTitle">Eine Seite</p>
+                    </div>
+                    <div class="site">
+                        <div class="siteIcon"></div>
+                        <p class="siteTitle">Eine Seite</p>
+                    </div>
+                    <div class="site">
+                        <div class="siteIcon"></div>
+                        <p class="siteTitle">Eine Seite</p>
+                    </div>
+                    <div class="site">
+                        <div class="siteIcon"></div>
+                        <p class="siteTitle">Eine Seite</p>
+                    </div>
+                    <div class="site">
+                        <div class="siteIcon"></div>
+                        <p class="siteTitle">Eine Seite</p>
+                    </div>
+                    <div class="site">
+                        <div class="siteIcon"></div>
+                        <p class="siteTitle">Eine Seite</p>
+                    </div>
+                    <div class="site">
+                        <div class="siteIcon"></div>
+                        <p class="siteTitle">Eine Seite</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-bottom: 8px;">
+                <button id="loadMore_button" class="button" style="text-align: center">Mehr laden</button>
+            </div>
+
+            <div id="accordion">
+                <div class="accordion" data-group="1">
+                    <div class="accordion__head">
+                        <div class="accordion__head__icon accordion--trigger">
+                            <i class="ts-angle-right"></i>
+                        </div>
+                        <div class="accordion__head__title  accordion--trigger">
+                             Willst Du eine Site vorschlagen?
+                        </div>
+                    </div>
+                    <div class="accordion__body">
+                        <div class="accordion__content" style="margin: 0 8px">
+                            <div style="display: flex; flex-flow: row; justify-content: space-between;">
+                                <input class="input" type="text" placeholder="Name" required>
+                                <input class="input" type="text" placeholder="eMail" required>
+                                <input class="input" type="text" placeholder="Adresse" required>
+                            </div>
+                            <div>
+                                <textarea class="input" style="width: 100%; height: 50px" placeholder="Kommentar"  type="text"></textarea>
+                            </div>
+                            
+                            <div style="text-align: center; margin: 8px 0;">
+                                <button id="send_button" class="button" style="text-align: center">Formular absenden</button>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
     <script src="https://api.chayns-static.space/js/v4.0/chayns.min.js"></script>
     <script src="https://polyfillsvc.tobit.com/polyfill.min.js?flags=gated&features=default,es6,Map,fetch"></script>
+    <script src="https://api.chayns-static.space/ui/v4.0/chayns-ui.min.js"></script>
 </div>
 </body>
 </html>

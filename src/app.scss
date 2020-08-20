@@ -12,3 +12,29 @@
     padding-top: 10px;
   }
 }
+
+.sitesList{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  place-items: center;
+}
+
+.site{
+  height: 130px;
+  width: 130px;
+  margin: 13px 0;
+}
+
+.siteIcon{
+  width: 90%;
+  height: 90%;
+  justify-self: center;
+  align-self: center;
+  margin-left: 5px;
+  background-color: darkgrey;
+}
+
+.siteTitle{
+  text-align: center;
+}
