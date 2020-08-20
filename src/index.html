@@ -22,12 +22,13 @@
     <div class="tapp">
         <div class="tapp_intro">
 
-            <h1> My Favourite Sites </h1>
-            <p> Willkommen auf meiner Liste von Chayns-Sites! Du kannst auch eine <a href="#accordion">Seite vorschlagen</a>. </p>
-
-            <div style="text-align: center">
+            <div style="display: flex; flex-flow: row; justify-content: space-between; margin-bottom: 5px;">
+                <h1> My Favourite Sites </h1>
                 <input class="input" type="text" placeholder="Suche" required>
             </div>
+            <p style="margin-bottom: 0;"> Willkommen auf meiner Liste von Chayns-Sites! Du kannst auch eine <a href="#accordion">Seite vorschlagen</a>. </p>
+
+            
 
             <div style="text-align: center"> 
                 <div class="sitesList" style="padding:13px 0">
@@ -86,10 +87,10 @@
                     </div>
                     <div class="accordion__body">
                         <div class="accordion__content" style="margin: 0 8px">
-                            <div style="display: flex; flex-flow: row; justify-content: space-between;">
+                            <div style="display: flex; flex-flow: column; justify-content: space-between;">
                                 <input class="input" type="text" placeholder="Name" required>
                                 <input class="input" type="text" placeholder="eMail" required>
-                                <input class="input" type="text" placeholder="Adresse" required>
+                                <input class="input" type="text" placeholder="Site-Adresse" required>
                             </div>
                             <div>
                                 <textarea class="input" style="width: 100%; height: 50px" placeholder="Kommentar"  type="text"></textarea>
