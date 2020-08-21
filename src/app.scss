@@ -32,9 +32,13 @@
   justify-self: center;
   align-self: center;
   margin-left: 5px;
-  background-color: darkgrey;
+  background-position: center;
+  background-size: cover;
 }
 
 .siteTitle{
   text-align: center;
+  text-overflow: ellipsis;
+  width: 145px;
+  max-height: 20px;
 }
