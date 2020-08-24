@@ -24,21 +24,28 @@
 
             <div style="display: flex; flex-flow: row; justify-content: space-between; margin-bottom: 5px;">
                 <h1> My Favourite Sites </h1>
-                <input id="search" class="input" type="search" placeholder="Suche" style="height: 21px; margin-top: 4px;">
+                <input id="search" class="input" type="search" placeholder="Suche" style="height: 26px; margin-top: 7px;">
             </div>
-            <p style="margin-bottom: 0;"> Willkommen auf meiner Liste von Chayns-Sites! Du kannst auch eine Seite vorschlagen. </p>
+            <p style="margin-bottom: 0;"> Willkommen auf meiner Liste von Chayns-Sites! Hier kannst Du nach Sites suchen und sie Dir ansehen. </p>
 
-            
-
-            <div style="text-align: center"> 
-                <div class="sitesList" style="padding:13px 0" id="sitesList">
+            <div id="sites_list">
+                <div style="padding-left: 28px; margin-right: 14px"> 
+                    <div class="sitesList" style="padding:13px 0" id="sitesList">
+                    </div>
+                </div>
+    
+                <div style="text-align: center; margin-bottom: 15px; margin-top: 0">
+                    <button id="loadMore_button" class="button" style="text-align: center">Mehr laden</button>
                 </div>
             </div>
-
-            <div style="text-align: center; margin-bottom: 15px; margin-top: 0">
-                <button id="loadMore_button" class="button" style="text-align: center">Mehr laden</button>
+            <div id="sites_view" style="display: none; text-align: center; margin-top: 16px;">
+                <iframe id="sites_view_frame" height = 650px width = 90% src=""></iframe>
+                <div style="text-align: center; margin-bottom: 15px; margin-top: 0">
+                    <button id="sites_view_back" class="button" style="text-align: center">Zurück</button>
+                    <button id="sites_view_tab" class="button" style="text-align: center">In Tab öffnen</button>
+                </div>
             </div>
-
+            
             <div id="accordion" class="accordion" data-group="1">
                 <div class="accordion__head">
                     <div class="accordion__head__icon accordion--trigger">
