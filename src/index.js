@@ -5,20 +5,21 @@ chayns.ui.initAll();
 
 let sites = 'https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=love&Skip=0&Take=30';
 let numberOfSites = 30;
-let time = Date.now();
 let isLoading = false;
+let timeout;
+let newList;
 
-function addSite(Site) {
-    const newSite = document.createElement('a');
+function addSite(Site, sitesList) {
+    const newSite = document.createElement('button');
     newSite.classList.add('site');
     newSite.style.border = 0;
-    document.getElementById('sitesList').appendChild(newSite);
+    sitesList.appendChild(newSite);
     const icon = document.createElement('div');
     icon.classList.add('siteIcon');
     newSite.appendChild(icon);
     const title = document.createElement('div');
     let titleText = Site.appstoreName;
-    if (titleText.length > 10) {
+    if (titleText.length > 9) {
         titleText = titleText.substring(0, 7);
         titleText += '...';
     }
@@ -34,7 +35,7 @@ function addSite(Site) {
     }).catch(() => { icon.style.backgroundImage = 'url(\'https://sub60.tobit.com/l/152342?size=100\')'; });
 }
 
-function fetchSites() {
+function fetchSites(sitesList) {
     chayns.showWaitCursor();
     isLoading = true;
     fetch(sites)
@@ -42,18 +43,26 @@ function fetchSites() {
     .then((data) => {
         for (const Site in data.Data) {
             if (Site !== undefined) {
-                addSite(data.Data[Site]);
+                addSite(data.Data[Site], sitesList);
             }
         }
         chayns.hideWaitCursor();
         isLoading = false;
+        if (newList !== undefined) {
+            document.getElementById('sitesList').remove();
+            document.getElementById('list_container').appendChild(newList);
+            newList.style.display = 'flex';
+            newList.id = 'sitesList';
+            newList = undefined;
+            // replace old list with new
+        }
     });
 }
 
 function loadMore() {
      sites = sites.replace(/Skip=\d*/, `&Skip=${numberOfSites}`);
      numberOfSites += 30;
-     fetchSites();
+     fetchSites(document.getElementById('sitesList'));
 }
 document.getElementById('loadMore_button').addEventListener('click', loadMore, false);
 
@@ -89,21 +98,21 @@ function sendForm() {
 document.getElementById('send_button').addEventListener('click', sendForm, false);
 
 function typingInSearch() {
-    time = Date.now();
-    setTimeout(() => {
-        if (Date.now() - time >= 1000 && document.getElementById('search').value !== '') {
-            searchSites();
-        }
-    }, 1000);
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+        searchSites();
+    }, 500);
 }
 function searchSites() {
     if (isLoading) {
         setTimeout(() => { searchSites(); }, 100);
     } else if (sites !== `https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${document.getElementById('search').value}&Skip=0&Take=30`) {
         sites = `https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${document.getElementById('search').value}&Skip=0&Take=30`;
-        const node = document.getElementById('sitesList');
-        node.querySelectorAll('*').forEach(n => n.remove());
-        fetchSites();
+        newList = document.createElement('div');
+        newList.classList.add('sitesList');
+        newList.style.display = 'none';
+        fetchSites(newList);
+        document.getElementById('list_container').appendChild(newList);
     }
 }
 document.getElementById('search').addEventListener('keydown', typingInSearch, false);
@@ -113,4 +122,4 @@ function viewSite(siteAdress) {
     document.getElementById('sites_view_frame').src = siteAdress;
 }
 
-fetchSites();
+fetchSites(document.getElementById('sitesList'));
