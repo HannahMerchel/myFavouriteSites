@@ -11,7 +11,6 @@ let isLoading = false;
 function addSite(Site) {
     const newSite = document.createElement('a');
     newSite.classList.add('site');
-    // newSite.href = `https://chayns.net/${Site.siteId}/`;
     newSite.style.border = 0;
     document.getElementById('sitesList').appendChild(newSite);
     const icon = document.createElement('div');
@@ -78,7 +77,14 @@ function sendForm() {
         document.getElementById('form_comment').value = '';
         document.getElementById('form_comment').className = 'accordion';
         chayns.dialog.alert('Vielen Dank für Deinen Vorschlag!', 'Dein Formula wurde versandt.');
-    } else chayns.dialog.alert('', 'Bitte fülle noch Name und eMail aus');
+    } else {
+        let message = 'Bitte füge noch';
+        if (name === '' && mail !== '') message += ' einen Name';
+        else if (name !== '' && mail === '') message += ' eine eMail';
+        else message += ' einen Name und eine eMail';
+        message += ' hinzu.';
+        chayns.dialog.alert('Formular unvollständig', message);
+    }
 }
 document.getElementById('send_button').addEventListener('click', sendForm, false);
 
