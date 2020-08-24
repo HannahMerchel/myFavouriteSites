@@ -49,8 +49,7 @@ function fetchSites() {
 
 function loadMore() {
      sites = sites.replace(/Skip=\d*/, `&Skip=${numberOfSites}`);
-     numberOfSites += 15;
-     sites = sites.replace(/"&Take="\d*/, `&Take=${numberOfSites}`);
+     numberOfSites += 30;
      fetchSites();
 }
 document.getElementById('loadMore_button').addEventListener('click', loadMore, false);
