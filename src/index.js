@@ -106,7 +106,7 @@ function typingInSearch() {
 function searchSites() {
     if (isLoading) {
         setTimeout(() => { searchSites(); }, 100);
-    } else if (sites !== `https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${document.getElementById('search').value}&Skip=0&Take=30`) {
+    } else if (document.getElementById('search').value.match(/\S/).length !== 0 && sites !== `https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${document.getElementById('search').value}&Skip=0&Take=30`) {
         sites = `https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${document.getElementById('search').value}&Skip=0&Take=30`;
         newList = document.createElement('div');
         newList.classList.add('sitesList');
