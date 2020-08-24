@@ -5,6 +5,8 @@ chayns.ui.initAll();
 
 let sites = 'https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=love&Skip=0&Take=30';
 let numberOfSites = 30;
+let time = Date.now();
+let isLoading = false;
 
 function addSite(Site) {
     const newSite = document.createElement('a');
@@ -17,8 +19,8 @@ function addSite(Site) {
     newSite.appendChild(icon);
     const title = document.createElement('div');
     let titleText = Site.appstoreName;
-    if (titleText.length > 11) {
-        titleText = titleText.substring(0, 8);
+    if (titleText.length > 10) {
+        titleText = titleText.substring(0, 7);
         titleText += '...';
     }
     title.textContent = titleText;
@@ -35,6 +37,7 @@ function addSite(Site) {
 
 function fetchSites() {
     chayns.showWaitCursor();
+    isLoading = true;
     fetch(sites)
     .then(response => response.json())
     .then((data) => {
@@ -44,6 +47,7 @@ function fetchSites() {
             }
         }
         chayns.hideWaitCursor();
+        isLoading = false;
     });
 }
 
@@ -78,31 +82,29 @@ function sendForm() {
 }
 document.getElementById('send_button').addEventListener('click', sendForm, false);
 
-function searchSites(event) {
-    if (event.key === 'Enter') {
-        sites = `https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${document.getElementById('search').value}&Skip=0&Take=15`;
+function typingInSearch() {
+    time = Date.now();
+    setTimeout(() => {
+        if (Date.now() - time >= 1000 && document.getElementById('search').value !== '') {
+            searchSites();
+        }
+    }, 1000);
+}
+function searchSites() {
+    if (isLoading) {
+        setTimeout(() => { searchSites(); }, 100);
+    } else if (sites !== `https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${document.getElementById('search').value}&Skip=0&Take=30`) {
+        sites = `https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${document.getElementById('search').value}&Skip=0&Take=30`;
         const node = document.getElementById('sitesList');
         node.querySelectorAll('*').forEach(n => n.remove());
         fetchSites();
     }
 }
-document.getElementById('search').addEventListener('keydown', searchSites, false);
-
-function sitesViewBack() {
-    document.getElementById('sites_view').style.display = 'none';
-    document.getElementById('sites_list').style.display = 'block';
-}
-document.getElementById('sites_view_back').addEventListener('click', sitesViewBack, false);
+document.getElementById('search').addEventListener('keydown', typingInSearch, false);
 
 function viewSite(siteAdress) {
+    chayns.openUrlInBrowser(siteAdress);
     document.getElementById('sites_view_frame').src = siteAdress;
-    document.getElementById('sites_view').style.display = 'block';
-    document.getElementById('sites_list').style.display = 'none';
 }
-
-function openInTab() {
-    chayns.openUrlInBrowser(document.getElementById('sites_view_frame').src);
-}
-document.getElementById('sites_view_tab').addEventListener('click', openInTab, false);
 
 fetchSites();

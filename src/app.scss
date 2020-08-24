@@ -4,13 +4,14 @@
   flex-wrap: wrap;
   flex-direction: row;
   place-items: center;
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 .site{
   height: 77px;
-  width: 83px;
+  width: 80px;
   margin: 8px 0;
+  margin-right: 15px;
 }
 
 .siteIcon{
@@ -18,13 +19,12 @@
   height: 57px;
   justify-self: center;
   align-self: center;
-  margin-left: 13px;
   background-position: center;
   background-size: cover;
 }
 
 .siteTitle{
-  text-align: center;
+  text-align: start;
   max-width: 93px;
   max-height: 20px;
 }
