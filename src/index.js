@@ -54,7 +54,6 @@ function fetchSites(sitesList) {
             newList.style.display = 'flex';
             newList.id = 'sitesList';
             newList = undefined;
-            // replace old list with new
         }
     });
 }
