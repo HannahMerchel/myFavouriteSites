@@ -91,7 +91,7 @@ function sendForm() {
         else if (name !== '' && mail === '') message += ' eine eMail';
         else message += ' einen Name und eine eMail';
         message += ' hinzu.';
-        chayns.dialog.alert('Formular unvollständig', message);
+        chayns.dialog.alert('Formular unvollständig:', message);
     }
 }
 document.getElementById('send_button').addEventListener('click', sendForm, false);
