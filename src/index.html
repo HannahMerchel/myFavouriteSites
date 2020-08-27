@@ -22,85 +22,48 @@
     <div class="tapp">
         <div class="tapp_intro">
 
-            <h1> My Favourite Sites </h1>
-            <p> Willkommen auf meiner Liste von Chayns-Sites! Du kannst auch eine <a href="#accordion">Seite vorschlagen</a>. </p>
-
-            <div style="text-align: center">
-                <input class="input" type="text" placeholder="Suche" required>
+            <div style="display: flex; flex-flow: row; justify-content: space-between; margin-bottom: 5px;">
+                <h1> My Favourite Sites </h1>
+                <input id="search" class="input" type="search" placeholder="Suche" style="height: 26px; margin-top: 7px;">
             </div>
+            <p style="margin-bottom: 0;"> Willkommen auf meiner Liste von Chayns-Sites! Hier kannst Du nach Sites suchen und sie Dir ansehen. </p>
 
-            <div style="text-align: center"> 
-                <div class="sitesList" style="padding:13px 0">
-                    <div class="site">
-                        <div class="siteIcon"></div>
-                        <p class="siteTitle">Eine Seite</p>
-                    </div>
-                    <div class="site">
-                        <div class="siteIcon"></div>
-                        <p class="siteTitle">Eine Seite</p>
-                    </div>
-                    <div class="site">
-                        <div class="siteIcon"></div>
-                        <p class="siteTitle">Eine Seite</p>
-                    </div>
-                    <div class="site">
-                        <div class="siteIcon"></div>
-                        <p class="siteTitle">Eine Seite</p>
-                    </div>
-                    <div class="site">
-                        <div class="siteIcon"></div>
-                        <p class="siteTitle">Eine Seite</p>
-                    </div>
-                    <div class="site">
-                        <div class="siteIcon"></div>
-                        <p class="siteTitle">Eine Seite</p>
-                    </div>
-                    <div class="site">
-                        <div class="siteIcon"></div>
-                        <p class="siteTitle">Eine Seite</p>
-                    </div>
-                    <div class="site">
-                        <div class="siteIcon"></div>
-                        <p class="siteTitle">Eine Seite</p>
-                    </div>
-                    <div class="site">
-                        <div class="siteIcon"></div>
-                        <p class="siteTitle">Eine Seite</p>
-                    </div>
+            <div id="list_container" style="margin-left: -10px"> 
+                <div class="sitesList" style="padding:13px 0" id="sitesList">
                 </div>
             </div>
 
-            <div style="text-align: center; margin-bottom: 8px;">
+            <div style="text-align: center; margin-bottom: 15px; margin-top: 0">
                 <button id="loadMore_button" class="button" style="text-align: center">Mehr laden</button>
             </div>
-
-            <div id="accordion">
-                <div class="accordion" data-group="1">
-                    <div class="accordion__head">
-                        <div class="accordion__head__icon accordion--trigger">
-                            <i class="ts-angle-right"></i>
-                        </div>
-                        <div class="accordion__head__title  accordion--trigger">
-                             Willst Du eine Site vorschlagen?
-                        </div>
+            
+            <div id="accordion" class="accordion" data-group="1">
+                <div class="accordion__head">
+                    <div class="accordion__head__icon accordion--trigger">
+                        <i class="ts-angle-right"></i>
                     </div>
-                    <div class="accordion__body">
-                        <div class="accordion__content" style="margin: 0 8px">
-                            <div style="display: flex; flex-flow: row; justify-content: space-between;">
-                                <input class="input" type="text" placeholder="Name" required>
-                                <input class="input" type="text" placeholder="eMail" required>
-                                <input class="input" type="text" placeholder="Adresse" required>
+                    <div class="accordion__head__title  accordion--trigger">
+                        Willst Du eine Site vorschlagen?
+                    </div>
+                </div>
+                <div class="accordion__body">
+                    <div class="accordion__content" style="margin: 0 8px">
+                            
+                            <div style="display: flex; flex-flow: column; justify-content: space-between;">
+                                <input id="form_name" class="input" type="text" placeholder="Name" required>
+                                <input id="form_eMail" class="input" type="email" placeholder="eMail" required>
+                                <input id="form_Site-Adress" class="input" type="url" placeholder="Site-Adresse">
                             </div>
                             <div>
-                                <textarea class="input" style="width: 100%; height: 50px" placeholder="Kommentar"  type="text"></textarea>
+                                <textarea id="form_comment" class="input" style="width: 100%; height: 50px" placeholder="Kommentar"  type="text"></textarea>
                             </div>
-                            
+                                
                             <div style="text-align: center; margin: 8px 0;">
                                 <button id="send_button" class="button" style="text-align: center">Formular absenden</button>
                             </div>
-                        </div>
-    
+                            
                     </div>
+    
                 </div>
             </div>
 
