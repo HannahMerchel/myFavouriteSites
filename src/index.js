@@ -71,7 +71,7 @@ function sendForm() {
     const adress = document.getElementById('form_Site-Adress').value;
     const comment = document.getElementById('form_comment').value;
     if (name !== '' && mail !== '') {
-        let message = `Formular von My Favourite Site:\nName: ${name};\n eMail: ${mail};\n SiteAdresse: `;
+        let message = `Nachricht von My Favourite Site:\nName: ${name};\n eMail: ${mail};\n SiteAdresse: `;
         if (adress !== '') message += adress;
         else message += '/';
         message += ';\n Kommentar: ';
