@@ -86,7 +86,7 @@ function sendForm() {
         document.getElementById('form_comment').className = 'accordion';
         chayns.dialog.alert('Vielen Dank für Deinen Vorschlag!', 'Dein Formula wurde versandt.');
     } else {
-        let message = 'Bitte füge noch';
+        let message = 'Füge bitte noch';
         if (name === '' && mail !== '') message += ' einen Name';
         else if (name !== '' && mail === '') message += ' eine eMail';
         else message += ' einen Name und eine eMail';
