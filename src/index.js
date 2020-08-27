@@ -72,7 +72,7 @@ function sendForm() {
     const adress = document.getElementById('form_Site-Adress').value;
     const comment = document.getElementById('form_comment').value;
     if (name !== '' && mail !== '') {
-        let message = `Name: ${name};\n eMail: ${mail};\n SiteAdresse: `;
+        let message = `Formular von My Favourite Site:\nName: ${name};\n eMail: ${mail};\n SiteAdresse: `;
         if (adress !== '') message += adress;
         else message += '/';
         message += ';\n Kommentar: ';
@@ -106,7 +106,7 @@ function typingInSearch() {
 function searchSites() {
     if (isLoading) {
         setTimeout(() => { searchSites(); }, 100);
-    } else if (document.getElementById('search').value.match(/\S/).length !== 0 && sites !== `https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${document.getElementById('search').value}&Skip=0&Take=30`) {
+    } else if (document.getElementById('search').value.match(/\S/).length !== 0 && sites !== `https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${document.getElementById('search').value}&Skip=${numberOfSites}&Take=30`) {
         sites = `https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${document.getElementById('search').value}&Skip=0&Take=30`;
         newList = document.createElement('div');
         newList.classList.add('sitesList');
